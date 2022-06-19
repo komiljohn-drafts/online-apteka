@@ -1,23 +1,30 @@
 .sidebar {
   border-right: 1px solid #e3e3e3;
-
   .header {
     padding: 12px 16px;
     display: flex;
     align-items: center;
+    justify-content: start;
     gap: 12px;
     border-bottom: 1px solid #e3e3e3;
+    height: 56px;
     span {
       font-size: 16px;
       font-weight: 500;
     }
   }
-  .items {
+  .itemsWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100vh - 56px);
+  }
+  .topItems {
     padding: 8px;
     .item {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       padding: 10px 12px;
       transition: all 0.3s ease;
       border-radius: 6px;
@@ -38,15 +45,35 @@
       .title {
         font-size: 14px;
         line-height: 24px;
-        font-weight: 500;
+        font-weight: 600;
         color: #6e8bb7;
       }
       .icon {
         color: #6e8bb7;
         svg {
-          width: 20px;
-          height: 20px;
+          width: 24px;
+          height: 24px;
         }
+      }
+    }
+  }
+  .bottomItems {
+    .item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      transition: all 0.3s ease;
+      margin-bottom: 4px;
+      border-top: 1px solid #e3e3e3;
+      cursor: pointer;
+      color: #6e8bb7;
+      .title {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      &.active {
+        color: #008000;
       }
     }
   }
