@@ -39,7 +39,7 @@ const Medicines = () => {
     },
     {
       key: "performed_treatments",
-      title: "Otkazilgan muolajalar",
+      title: "O'tkazilgan muolajalar",
     },
     {
       key: "operation",

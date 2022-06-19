@@ -37,6 +37,26 @@ button {
   display: flex;
 }
 
+.p-4 {
+  padding: 16px;
+}
+
+.mb-4 {
+  margin-bottom: 16px;
+}
+
+.gap-3 {
+  gap: 12px;
+}
+
+.input-label {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  margin-bottom: 4px;
+  display: inline-block;
+}
+
 /* overrides mui */
 .MuiTableCell-root.MuiTableCell-head,
 .MuiTableCell-root.MuiTableCell-body {

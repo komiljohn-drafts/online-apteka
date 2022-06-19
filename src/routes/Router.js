@@ -1,6 +1,7 @@
 import { lazy, Suspense, useMemo } from "react"
 import { Navigate, Route, Routes } from "react-router-dom"
 import { permissions } from "../utils/constants"
+import FallbackPage from "../views/FallbackPage"
 import mainRoutes from "./mainRoutes"
 
 const MainLayout = lazy(() => import("../layouts/MainLayout"))
@@ -26,7 +27,7 @@ const Router = () => {
       <Route
         path="/"
         element={
-          <Suspense fallback={<div>123</div>}>
+          <Suspense fallback={<FallbackPage />}>
             <MainLayout />
           </Suspense>
         }
@@ -38,7 +39,7 @@ const Router = () => {
             path={route.path}
             key={route.path}
             element={
-              <Suspense fallback={<div>123</div>}>
+              <Suspense fallback={<FallbackPage />}>
                 <route.component />
               </Suspense>
             }
@@ -48,7 +49,7 @@ const Router = () => {
                 path={childRoute.path}
                 key={childRoute.path}
                 element={
-                  <Suspense fallback={<div>123</div>}>
+                  <Suspense fallback={<FallbackPage />}>
                     <childRoute.component />
                   </Suspense>
                 }
