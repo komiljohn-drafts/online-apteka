@@ -1,1 +1,1 @@
-export const permissions = ["DASHBOARD", "MEDICINE", "PROFILE"]
+export const permissions = ["DASHBOARD", "MEDICINE", "MEDICINE/CREATE", "PROFILE"]

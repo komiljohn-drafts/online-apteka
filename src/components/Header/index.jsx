@@ -15,7 +15,7 @@ const Header = ({ title = "Dorixona", rightElement, backLink }) => {
         )}
         <span>{title}</span>
       </div>
-      <div>{rightElement}</div>
+      {rightElement}
     </div>
   )
 }

@@ -1,0 +1,43 @@
+.btn {
+  outline: none;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: 0.3s ease;
+  cursor: pointer;
+
+  span {
+    width: 20px;
+    height: 20px;
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &.primary__btn {
+    background: #00ab66;
+    color: #fff;
+    &:hover {
+      background-color: #00b96f;
+    }
+  }
+
+  &.secondary__btn {
+    border: 2px solid #e3e3e3;
+    background: #fff;
+    color: #00ab66;
+    span svg path {
+      fill: #00ab66;
+    }
+    &:hover {
+      border: 2px solid #00b96f;
+    }
+  }
+}

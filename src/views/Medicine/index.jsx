@@ -1,11 +1,16 @@
 import { useState } from "react"
+import Button from "../../components/Button"
 import Card from "../../components/Card"
 import CustomTable from "../../components/CustomTable"
 import Header from "../../components/Header"
+import { AddIcon } from "../../assets/icons/svgs"
+import { useNavigate } from "react-router-dom"
 
 const Medicines = () => {
   const [offset, setOffset] = useState(1)
   const [limit, setLimit] = useState(10)
+
+  const navigate = useNavigate()
 
   const headColumns = [
     {
@@ -67,7 +72,15 @@ const Medicines = () => {
 
   return (
     <div>
-      <Header title="Dorilar" backLink={-1} />
+      <Header
+        title="Dorilar"
+        backLink={-1}
+        rightElement={
+          <Button leftIcon={<AddIcon />} onClick={() => navigate("add")}>
+            Qo'shish
+          </Button>
+        }
+      />
       <div className="mainWrapper">
         <Card title="Dorilar">
           <CustomTable
