@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Card from "../../components/Card"
 import CustomTable from "../../components/CustomTable"
 import Header from "../../components/Header"
 
@@ -68,14 +69,16 @@ const Medicines = () => {
     <div>
       <Header title="Dorilar" backLink={-1} />
       <div className="mainWrapper">
-        <CustomTable
-          headColumns={headColumns}
-          bodyColumns={bodyColumns}
-          limit={limit}
-          offset={offset}
-          setLimit={setLimit}
-          setOffset={setOffset}
-        />
+        <Card title="Dorilar">
+          <CustomTable
+            headColumns={headColumns}
+            bodyColumns={bodyColumns}
+            limit={limit}
+            offset={offset}
+            setLimit={setLimit}
+            setOffset={setOffset}
+          />
+        </Card>
       </div>
     </div>
   )

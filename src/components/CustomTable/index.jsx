@@ -5,8 +5,8 @@ import "./style.scss"
 const CustomTable = ({ headColumns, bodyColumns, offset, setOffset, limit, setLimit }) => {
   return (
     <div>
-      <TableContainer>
-        <Table>
+      <TableContainer className="table__container">
+        <Table aria-label="simple table">
           <TableHead>
             <TableRow>
               {headColumns?.map((col, index) => (
@@ -18,7 +18,7 @@ const CustomTable = ({ headColumns, bodyColumns, offset, setOffset, limit, setLi
           </TableHead>
           <TableBody>
             {bodyColumns.map((row, rowIndex) => (
-              <tr key={row.id}>
+              <tr key={row.id} style={{ backgroundColor: rowIndex % 2 === 0 ? "#fff" : "#f4f6fA" }}>
                 {headColumns.map((col, index) => (
                   <TableCell key={col.key}>
                     <div className={`table-row ${index === headColumns.length - 1 ? "last" : ""}`}>
@@ -33,7 +33,7 @@ const CustomTable = ({ headColumns, bodyColumns, offset, setOffset, limit, setLi
       </TableContainer>
       <div className="pagination-wrapper">
         <Pagination
-          count={25}
+          count={31}
           pageCount={10}
           onChange={(pageNumber) => setOffset(pageNumber)}
           currentPage={offset ?? 1}

@@ -3,7 +3,7 @@
   font-weight: 600;
   line-height: 24px;
   border-right: 1px solid #e3e3e3;
-  padding: 8px;
+  padding: 12px 16px;
   text-align: center;
   &.last {
     border: none;
@@ -14,7 +14,7 @@
   font-weight: 500;
   line-height: 24px;
   border-right: 1px solid #e3e3e3;
-  padding: 8px;
+  padding: 12px 16px;
   text-align: center;
   &.last {
     border: none;
@@ -22,5 +22,12 @@
 }
 
 .pagination-wrapper {
+  border-top: 1px solid #e3e3e3;
+  padding-top: 12px;
   margin-top: 16px;
+}
+.table__container {
+  border: 1px solid #e3e3e3;
+  border-bottom: none;
+  border-radius: 6px;
 }

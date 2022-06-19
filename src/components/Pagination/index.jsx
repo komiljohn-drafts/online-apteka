@@ -38,7 +38,7 @@ export function Pagination({
     <div className="pagination" style={{ marginTop }}>
       <div className="indicator" onClick={handleClickPopup}>
         <InsertDriveFileIcon fontSize="small" className="leftIcon" />
-        <span className="text-black font-medium">{limit} dan ko'rsatish</span>
+        <span className="text-black font-medium">{limit} tadan ko'rsatish</span>
         <KeyboardArrowDownIcon className="rightIcon" />
       </div>
 
