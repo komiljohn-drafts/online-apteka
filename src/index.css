@@ -21,3 +21,19 @@ code {
 a {
   text-decoration: none;
 }
+
+.mainWrapper {
+  height: calc(100vh - 56px);
+  padding: 16px;
+}
+
+/* common styles */
+.flex {
+  display: flex;
+}
+
+/* overrides mui */
+.MuiTableCell-root.MuiTableCell-head,
+.MuiTableCell-root.MuiTableCell-body {
+  padding: 0;
+}
