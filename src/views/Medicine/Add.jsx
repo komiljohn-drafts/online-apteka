@@ -5,6 +5,8 @@ import Card from "../../components/Card"
 import MedicineForm from "../../forms/Medicine"
 import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
+import axios from "axios"
+import { useEffect } from "react"
 
 const MedicineAdd = () => {
   const {
@@ -15,6 +17,8 @@ const MedicineAdd = () => {
   } = useForm()
 
   const navigate = useNavigate()
+
+  useEffect(() => axios.get("http://localhost:3001/").then((res) => console.log("response - ", res)), [])
 
   const onSubmit = (data) => console.log("medicine form data - ", data)
 
