@@ -3,14 +3,14 @@
   border: none;
   padding: 8px 16px;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 20px;
-  display: flex;
-  align-items: center;
   gap: 10px;
+  display: flex;
   transition: 0.3s ease;
   cursor: pointer;
+  text-align: center;
 
   span {
     width: 20px;
@@ -22,7 +22,7 @@
   }
 
   &.primary__btn {
-    background: #00ab66;
+    background: primary;
     color: #fff;
     &:hover {
       background-color: #00b96f;

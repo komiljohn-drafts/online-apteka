@@ -1,9 +1,9 @@
 .layout {
-  display: grid;
-  grid-template-columns: 260px 1fr;
   height: 100vh;
+  display: flex;
 }
 
 .content {
-  background-color: #dae7e1b3;
+  background-color: #ede1e1b3;
+  flex-grow: 1;
 }

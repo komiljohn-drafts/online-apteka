@@ -1,10 +1,13 @@
-import { useState } from "react"
-import Button from "../../components/Button"
-import Card from "../../components/Card"
-import CustomTable from "../../components/CustomTable"
-import Header from "../../components/Header"
-import { AddIcon } from "../../assets/icons/svgs"
-import { useNavigate } from "react-router-dom"
+import { useState } from 'react'
+import Button from '../../components/Button'
+import Card from '../../components/Card'
+import CustomTable from '../../components/CustomTable'
+import Header from '../../components/Header'
+import { AddIcon } from '../../assets/icons/svgs'
+import { useNavigate } from 'react-router-dom'
+import useMedicine from '../../api/useMedicine'
+import { format } from 'date-fns'
+import uz from 'date-fns/esm/locale/uz/index.js'
 
 const Medicines = () => {
   const [offset, setOffset] = useState(1)
@@ -14,78 +17,65 @@ const Medicines = () => {
 
   const headColumns = [
     {
-      key: "order",
-      title: "№",
+      key: 'order',
+      title: '№',
     },
     {
-      key: "full_name",
-      title: "Ism sharifi",
+      key: 'full_name',
+      title: 'Ism sharifi',
     },
     {
-      key: "phone_number",
-      title: "Telefon raqami",
+      key: 'phone_number',
+      title: 'Telefon raqami',
     },
     {
-      key: "has_been_at",
-      title: "Kelgan sanasi",
+      key: 'begin_date',
+      title: 'Kelgan sanasi',
+      render: (val) => <span>{format(new Date(val), 'dd-MMMM-yyyy', { locale: uz })}</span>,
     },
     {
-      key: "inspection_conclusions",
-      title: "Tekshiruv xulosalari",
+      key: 'inspection_conclusions',
+      title: 'Tekshiruv xulosalari',
     },
     {
-      key: "diagnosis",
-      title: "Diagnoz",
+      key: 'diagnosis',
+      title: 'Diagnoz',
     },
     {
-      key: "performed_treatments",
+      key: 'performed_treatments',
       title: "O'tkazilgan muolajalar",
     },
     {
-      key: "operation",
-      title: "Operatsiya",
+      key: 'operation',
+      title: 'Operatsiya',
+    },
+    {
+      key: 'operation',
+      title: 'MRT natijalari',
     },
   ]
 
-  const bodyColumns = [
-    {
-      id: 1,
-      full_name: "Anvar Bektemirov",
-      phone_number: "+998997772288",
-      has_been_at: "23.06.2022",
-      inspection_conclusions: "Sog'lom",
-      diagnosis: "Shamollash",
-      performed_treatments: "Paratsetamol",
-      operation: "Analgin demederol",
-    },
-    {
-      id: 2,
-      full_name: "G'ulomjon Yoqubov",
-      phone_number: "+998997772288",
-      has_been_at: "23.06.2022",
-      inspection_conclusions: "Sog'lom",
-      diagnosis: "Shamollash",
-      performed_treatments: "Paratsetamol",
-      operation: "Analgin demederol",
-    },
-  ]
+  const { medicines } = useMedicine({ medicinesParams: { offset, limit } })
+
+  console.log('medicines - ', medicines)
 
   return (
     <div>
       <Header
-        title="Dorilar"
+        title='Dorilar'
         backLink={-1}
         rightElement={
-          <Button leftIcon={<AddIcon />} onClick={() => navigate("add")}>
+          <Button leftIcon={<AddIcon />} onClick={() => navigate('add')}>
             Qo'shish
           </Button>
         }
       />
-      <div className="mainWrapper">
-        <Card title="Dorilar">
+      <div className='mainWrapper'>
+        <Card title='Dorilar'>
           <CustomTable
+            count={medicines.data?.meta?.pagination?.total}
             headColumns={headColumns}
-            bodyColumns={bodyColumns}
+            bodyColumns={medicines.data?.data}
             limit={limit}
             offset={offset}
             setLimit={setLimit}
